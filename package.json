@@ -1,0 +1,21 @@
+{
+  "name": "rpg",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "author": "SMCodesP <samuel.silva513@etec.sp.gov.br>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "get-color-sm": "^1.0.1",
+    "mongoose": "^5.9.14",
+    "register-cmd-discord": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

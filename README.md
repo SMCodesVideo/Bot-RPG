@@ -57,7 +57,7 @@
 Rede sociais:
 
 - [SMCODES #SMC500](https://www.youtube.com/channel/UC0TyL90rVvMfO1aI_tzF9mA)
-- Discord: SMCodes#0
+- Discord: SMCodes#4207
 - [Projeto](https://github.com/SMCodesVideo/Bot-RPG)
 - [GitHub - 1](https://github.com/SMCodesVideo/)
 - [GitHub - 2](https://github.com/SMCodesP/)

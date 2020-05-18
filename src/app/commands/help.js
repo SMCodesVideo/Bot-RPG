@@ -14,7 +14,6 @@ class Help extends AbstractCommand {
 		const responseMessage = new MessageEmbed()
 			.setColor(`#${getColor()}`)
 			
-		console.log(args, this.bot.findCommand(args[0]))
 		if(args[0]) {
 			const command = this.bot.findCommand(args[0]);
 			const aliases = command.config.aliases.join(', ');

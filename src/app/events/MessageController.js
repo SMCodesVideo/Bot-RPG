@@ -6,15 +6,15 @@ class Message {
 		if(!msg.content.startsWith(prefix)) return;
 		const args = msg.content.slice(prefix.length).trim().split(' ');
 		const cmd = args.shift().toLowerCase();
-		const commandFile = bot.commands.get(cmd) || bot.commands.get(bot.aliases.get(cmd));
+		const command = bot.findCommand(cmd);
 
-		if(!commandFile) return;
+		if (!command) return;
+		if (!bot.connection) return;
 
 		msg.delete().catch(() => {});
-		if(!bot.connection) return ;
 
 		try {
-			const result = await commandFile.run(msg, bot, args, prefix);
+			await command.run(msg, args, prefix);
 		} catch (err) {
 			msg.reply(getError(err).message || 'Houve algum erro não reconhecido');
 		}

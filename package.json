@@ -12,8 +12,7 @@
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "get-color-sm": "^1.0.1",
-    "mongoose": "^5.9.14",
-    "register-cmd-discord": "^1.0.0"
+    "mongoose": "^5.9.14"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

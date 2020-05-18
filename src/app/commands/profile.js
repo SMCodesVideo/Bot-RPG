@@ -1,27 +1,16 @@
 const User = require('../models/User');
+const AbstractCommand = require('../strutures/AbstractCommand');
 
-class Profile {
-	constructor() {
-		this.config = {
-			name: 'perfil',
-			aliases: [],
+class Profile extends AbstractCommand {
+	constructor(bot) {
+		super(bot, 'perfil', {
 			help: 'Comando para finalidades de gerenciamento de perfil.',
-			requiredPermission: []
-		};
+		})
+	}
 
-		this.run = (msg, bot, args, prefix) => {
-			if(args[0]) {
-				const exec = this.subcommands[args[0]];
-				if(!exec) {
-					throw 103;
-				} 
-
-				return exec(msg, bot, args, prefix);
-			}
-		}
-
-		this.subcommands = {
-			iniciar: async (msg) => {
+	async run (msg, args) {
+		switch (args[0]) {
+			case 'iniciar': {
 				const client_id = msg.author.id;
 				try {
 					const user = await User.findOne({ client_id });
@@ -37,13 +26,16 @@ class Profile {
 						});
 						return msg.reply('Sua conta foi criada com sucesso, agora você pode jogar tranquilamente');
 					} catch (err) {
+						console.error(err)
 						throw 101;
 					}
 				} catch (err) {
 					throw err || 101;
 				}
-			},
-			infos: async (msg) => {
+				break;
+			}
+
+			case 'infos': {
 				const client_id = msg.author.id;
 				try {
 					const user = await User.findOne({ client_id });
@@ -51,9 +43,13 @@ class Profile {
 				} catch (err) {
 					throw 101;
 				}
+				break;
 			}
-		};
+		
+			default:
+				throw 103;
+		}
 	}
 }
 
-module.exports = new Profile();
+module.exports = Profile;
